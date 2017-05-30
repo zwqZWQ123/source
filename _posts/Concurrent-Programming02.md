@@ -9,13 +9,12 @@ tags:
 description: 互联网并发编程知识我们将进行第二部分的学习，在基础篇第二部分我们将掌握以下方面的内容：（1）并发编程下的多线程间通信概念wait、notify，线程经典面试题讲解 （2）模拟底层阻塞队列（queue）实现讲解 （3）单例和多线程如何结合使用
 
 categories: 
-- 多线程
-- 并发编程
+- 多线程&并发编程
 ---
 
 # 线程之间的通信
 
-&ensp;&emsp;&emsp;**线程通信概念：**线程是操作系统中独立的个体，但这些个体如果不经过特殊的处理就不能成为一个整体，线程间的通信就成为整体的必用方式之一。当线程存在通信指挥，系统间的交互性会更强大，在提高CPU利用率的同时还会使开发人员对线程任务在处理的过程中进行有效的把控与监督。
+**线程通信概念：**线程是操作系统中独立的个体，但这些个体如果不经过特殊的处理就不能成为一个整体，线程间的通信就成为整体的必用方式之一。当线程存在通信指挥，系统间的交互性会更强大，在提高CPU利用率的同时还会使开发人员对线程任务在处理的过程中进行有效的把控与监督。
 
 &ensp;&emsp;&emsp;使用**wait／notify**方法实现线程间的通信。（注意这两个方法都是Object类的方法，换句话说java为所有的对象都提供了这两个方法）。
 
@@ -148,9 +147,9 @@ wait —— countDownLatch.await()
 notify—— countDownLatch.notify()**
 
 # 使用wait/notify模拟Queue
-&ensp;&emsp;&emsp;**BlockingQueue:**顾名思义，首先它是一个队列，并支持阻塞的机制，阻塞的放入和得到数据。我们要实现LinkedBlockingQueue下面两个简单的方法put和take。
-&ensp;&emsp;&emsp;**put(anObject):**把anObject加到BlockingQueue里，如果BlockingQueue没有空间，则调用此方法的线程被阻断，直到BlockingQueue里面有空间再继续。
-&ensp;&emsp;&emsp;**take:**取走BlockingQueue里排在首位的对象，若BlockingQueue为空，阻断进入等待状态直到BlockingQueue有新的数据被加入。
+**BlockingQueue:**顾名思义，首先它是一个队列，并支持阻塞的机制，阻塞的放入和得到数据。我们要实现LinkedBlockingQueue下面两个简单的方法put和take。
+**put(anObject):**把anObject加到BlockingQueue里，如果BlockingQueue没有空间，则调用此方法的线程被阻断，直到BlockingQueue里面有空间再继续。
+**take:**取走BlockingQueue里排在首位的对象，若BlockingQueue为空，阻断进入等待状态直到BlockingQueue有新的数据被加入。
 
 _MyQueue.java_
 
@@ -268,7 +267,7 @@ public class MyQueue {
 ```
 
 # ThreadLocal
-&ensp;&emsp;&emsp;**ThreadLocal概念：**线程局部变量，是一种多线程间并发访问变量的解决方案 。与其synchronized等加锁的方式不同，**ThreadLocal完全不提供锁，而使用以空间换时间的手段，为每个线程提供变量的独立副本，以保证线程安全**。
+**ThreadLocal概念：**线程局部变量，是一种多线程间并发访问变量的解决方案 。与其synchronized等加锁的方式不同，**ThreadLocal完全不提供锁，而使用以空间换时间的手段，为每个线程提供变量的独立副本，以保证线程安全**。
 
 &ensp;&emsp;&emsp;从性能上讲，ThreadLocal不具有绝对的优势，**在并发不是很高的时候，加锁的性能会更好**，但作为一套与锁完全无关的线程安全解决方案，在高并发量或者竞争激烈的场景，使用ThreadLocal可以在一定程度上减少锁竞争。
 

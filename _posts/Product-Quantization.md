@@ -1,7 +1,10 @@
 ---
 title: 近似最近邻之乘积量化（Product Quantization）<br>
 date: 2017-03-13 11:39:49
-tags: 乘积量化 、Product Quantization 、 PQ
+tags: 
+- 乘积量化 
+- Product Quantization 
+- PQ
 description: product quantizer是由Herve Jegou等人2011年在IEEE上发表的论文《Product Quantization for Nearest Neighbor Search》中提出来的。
 ---
 # 简介

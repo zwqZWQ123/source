@@ -1,7 +1,7 @@
 ---
 title: 矢量量化(vector-Quantization)
 date: 2017-03-13 20:06:59
-tags: 
+tags: 矢量量化
 description: 使用矢量量化对图像压缩进行高效的码本设计
 ---
 # 使用矢量量化对图像压缩进行高效的码本设计

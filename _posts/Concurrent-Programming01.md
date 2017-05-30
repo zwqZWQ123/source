@@ -11,8 +11,7 @@ tags:
 description: 今天进入互联网并发编程知识的学习，在基础篇第一部分我们将掌握以下方面的内容：（1）线程基础概念、线程安全概念、多个线程多个锁概念（2）对象锁的同步和异步（3）脏读概念、脏读业务场景（4）Synchronized概念、Synchronized代码块、Synchronized其他细节（5）olatile关键字概念、线程优化执行流程、内部原理讲解、Volatile关键字的非原子性
 
 categories: 
-- 多线程
-- 并发编程
+- 多线程&并发编程
 ---
 # 线程安全
 
@@ -123,10 +122,10 @@ public class MultiThread {
 &ensp;&emsp;&emsp;同步的概念就是共享，如果不是共享的资源，就没有必要进行同步。
 **异步（asynchronized）**
 &ensp;&emsp;&emsp;异步的概念就是独立，相互之间不受到任何制约。就好像我们学习http的时候，在页面发起的Ajax请求，我们还可以继续浏览或操作页面的内容，二者之间没有任何关系。
-同步的目的就是为了线程安全，其实对于其他线程安全来说，需要满足两个特性：
+&ensp;&emsp;&emsp;同步的目的就是为了线程安全，其实对于其他线程安全来说，需要满足两个特性：
 
-* 原子性（同步）
-* 可见性
+* **原子性（同步）**
+* **可见性**
 
 _MyObject.java_
 
@@ -178,8 +177,8 @@ public class MyObject {
 }
 ```
 **代码分析：**
-t1线程先持有object对象的Lock锁，t2线程可以以异步的方式调用对象中的非synchronized修饰的方法
-t1线程先持有object对象的Lock锁，t2线程如果在这个时候调用对象中的同步（synchronized）方法则需等待，也就是同步
+&ensp;&emsp;&emsp;t1线程先持有object对象的Lock锁，t2线程可以以异步的方式调用对象中的非synchronized修饰的方法
+&ensp;&emsp;&emsp;t1线程先持有object对象的Lock锁，t2线程如果在这个时候调用对象中的同步（synchronized）方法则需等待，也就是同步
 
 # 脏读
 &ensp;&emsp;&emsp;对于对象的同步和异步的方法，我们在设计自己的程序的时候，一定要考虑问题的整体，不然就会出现数据不一致的错误，很经典的错误就是**脏读（dirtyread）**。
@@ -238,11 +237,11 @@ public class DirtyRead {
 举例一致性（consistancy）:
 
 ![cp1](/Concurrent-Programming01/cp1.png)
-Oracle数据库——undo（类似于日志） 如果从undo中找不到值，则会报出snapshotToOld异常。
+&ensp;&emsp;&emsp;Oracle数据库——undo（类似于日志） 如果从undo中找不到值，则会报出snapshotToOld异常。
 
 # synchronized其他概念
 
-1.关键字synchronized拥有**锁重入**的功能,也就是在使用synchronized时，当一个线程得到一个对象的锁后，再次请求此对象时是可以再次得到该对象的锁。
+&ensp;&emsp;&emsp;关键字synchronized拥有**锁重入**的功能,也就是在使用synchronized时，当一个线程得到一个对象的锁后，再次请求此对象时是可以再次得到该对象的锁。
 _SyncDubbo1.java_
 
 ```java
@@ -321,7 +320,7 @@ public class SyncDubbo2 {
 }
 ```
 
-2.若出现异常，锁自动释放。
+&ensp;&emsp;&emsp;若出现异常，锁自动释放。
 _SyncException.java_
 
 ```java
@@ -357,7 +356,7 @@ public class SyncException {
 	}
 }
 ```
-3.适用于处理多任务，需要同时成功或失败，回滚；或者不需要同时成功或失败，失败的需要日志。
+&ensp;&emsp;&emsp;适用于处理多任务，需要同时成功或失败，回滚；或者不需要同时成功或失败，失败的需要日志。
 
 # synchronized代码块
 &ensp;&emsp;&emsp;使用**synchronized**声明的方法在某些情况下是有弊端的，比如A线程调用同步的方法执行一个很长时间的任务，那么B线程就必须等待比较长的时间才能执行，这样的情况下可以使用synchronized代码块去优化代码执行时间，也就是通常所说的**减小锁的粒度**。

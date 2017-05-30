@@ -2,6 +2,7 @@
 title: 倒排索引（Inverted-Index）
 date: 2017-03-13 21:50:06
 tags:
+- 倒排索引
 description: 倒排索引（Inverted index）,也常被称为反向索引、置入档案或反向档案，被用来存储在全文搜索下某个单词在一个文档或者一组文档中的存储位置的映射。它是文档检索系统中最常见的数据结构。
 ---
 # 倒排索引（Inverted Index）

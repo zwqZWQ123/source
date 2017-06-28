@@ -39,8 +39,10 @@ The result is a tool that can now be used for building and managing any Java-bas
 1. 下载 Maven ，其实就是一个压缩包，解压一下
 ![install_maven1](/maven/install_maven1.jpeg)
 2. 配置一下环境变量,有两个环境变量可以配置：
-* MAVEN_HOME = D:\maven\apache-maven-3.2.3
-* MAVEN_OPTS = -Xms128m -Xmx512m(可选)
+
+    * MAVEN_HOME = D:\maven\apache-maven-3.2.3
+    * MAVEN_OPTS = -Xms128m -Xmx512m(可选)
+
 3. 在path变量末尾加入“%MAVEN_HOME%\bin;”,以上M2_HOME 是必须要配置的，如果想让 Maven 跑得更快点，可以根据自己的情况来设置 MAVEN_OPTS。
 ![install_maven2](/maven/install_maven2.jpeg)
 4. 最后，验证是否安装成功

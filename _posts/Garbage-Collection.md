@@ -72,7 +72,7 @@ Java中可作为**GC Root**的对象有
 ![MARK_SWEEP_GC](/Garbage-Collection/MARK_SWEEP_GC.gif)
 &ensp;&emsp;&emsp;从动画中可以看到，在一小段时间内没有出现红色闪烁，之后又突然出现了很多红色闪烁，说明它正在标记存活的对象。在完成标记之后，所有的垃圾被清除，释放出内存。我们还能从动画中看到，有些区域一下子全部转成黑色，而不是像引用计数算法那样慢慢地随时间扩散开来。
 
-## compacting算法 或 标记-整理算法
+## compacting算法 或 标记-压缩算法
 ![Compacting-Collector](/Garbage-Collection/Compacting-Collector.png)
 3.1 **算法分析**
 &ensp;&emsp;&emsp;标记-整理算法采用标记-清除算法一样的方式进行对象的标记，但在清除时不同，在回收不存活的对象占用的空间后，会将所有的存活对象往左端空闲空间移动，并更新对应的指针。
